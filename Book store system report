@@ -1,0 +1,61 @@
+username=['A','B']
+password=['c','b']
+c=0
+u1=str(input("Username:"))
+ps1=str(input("Password:"))
+for i in range(len(username)):
+    if(username[i]==u1 and password[i]==ps1):
+        u=username[i]
+        ps=password[i]
+    else:
+        print()
+        c=c+1
+if(c==2):
+    print("No User")
+    exit()
+if(u1==u and ps1==ps):
+    print("\t\tWelcome",u)
+    n=int(input("1.New Record\n2.Search Record\n3.Logout"))
+    if(n==1):
+        print("\t\t**CaseInformation**")
+        pn=str(input("Person Name:"))
+        age=int(input("Age:"))
+        file=open("case.txt","w")
+        c=str(input("Case:"))
+        file.write(c)
+        file.close()
+        y=str(input("Press Y to Save details"))
+        if(y=='y'):
+            print("Thanks for Saving")
+        else:
+            print("Re-save the case")
+            exit()
+    n=int(input("1.New Record\n2.Search Record\n3.Logout"))
+    if(n==1):
+        print("\t\t**CaseInformation**")
+        pn=str(input("Person Name:"))
+        age=int(input("Age:"))
+        file=open("case.txt","w")
+        c=str(input("Case:"))
+        file.write(c)
+        y=str(input("Press Y to Save details"))
+        if(y=='y'):
+            print("Thanks for Saving")
+        else:
+            print("Save it Properly")
+    elif(n==2):
+        pn1=str(input("Person Name:"))
+        if(pn==pn1):
+            print("Person Name:",pn)
+            print("Age:",age)
+            file1=open("case.txt","r")
+            t=file1.read()
+            file1.close()
+            print("Case:",t)
+        else:
+            print("No Details Available")
+    elif(n==3):
+        print("Are you Sure do want to exit")
+        yes=str(input("Press yes to exit"))
+        if(yes=='yes'):
+            exit()
