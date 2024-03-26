@@ -1,61 +1,137 @@
-username=['A','B']
-password=['c','b']
-c=0
-u1=str(input("Username:"))
-ps1=str(input("Password:"))
-for i in range(len(username)):
-    if(username[i]==u1 and password[i]==ps1):
-        u=username[i]
-        ps=password[i]
-    else:
-        print()
-        c=c+1
-if(c==2):
-    print("No User")
-    exit()
-if(u1==u and ps1==ps):
-    print("\t\tWelcome",u)
-    n=int(input("1.New Record\n2.Search Record\n3.Logout"))
-    if(n==1):
-        print("\t\t**CaseInformation**")
-        pn=str(input("Person Name:"))
-        age=int(input("Age:"))
-        file=open("case.txt","w")
-        c=str(input("Case:"))
-        file.write(c)
-        file.close()
-        y=str(input("Press Y to Save details"))
-        if(y=='y'):
-            print("Thanks for Saving")
-        else:
-            print("Re-save the case")
-            exit()
-    n=int(input("1.New Record\n2.Search Record\n3.Logout"))
-    if(n==1):
-        print("\t\t**CaseInformation**")
-        pn=str(input("Person Name:"))
-        age=int(input("Age:"))
-        file=open("case.txt","w")
-        c=str(input("Case:"))
-        file.write(c)
-        y=str(input("Press Y to Save details"))
-        if(y=='y'):
-            print("Thanks for Saving")
-        else:
-            print("Save it Properly")
-    elif(n==2):
-        pn1=str(input("Person Name:"))
-        if(pn==pn1):
-            print("Person Name:",pn)
-            print("Age:",age)
-            file1=open("case.txt","r")
-            t=file1.read()
-            file1.close()
-            print("Case:",t)
-        else:
-            print("No Details Available")
-    elif(n==3):
-        print("Are you Sure do want to exit")
-        yes=str(input("Press yes to exit"))
-        if(yes=='yes'):
-            exit()
+print("\t\t\tBook Store System")
+bk=['Theory of machines','Solid mechanics','Fluid mechanices','Engineering materials','Primary manufacturing']
+l=len(bk)
+for i in range (l):
+    print(i+1,bk[i])
+s=int(input("Select the Book: "))
+print("The Different type of Authurs:")
+if(s==1):
+    print(bk[s-1])
+    a=['R.S KHURMI','BEVIS BRUNEL LOW','JOHN J.ULCKER','Theory of machines by JOSEPH E.SHIGLEY']
+    for i in range (len(a)):
+        print(i+1,"Theory of Machines by",a[i])
+    an=int(input("Choose the Author:"))
+    if(an==1):
+        bka=55
+        tbk=100
+        prize=560
+    elif(an==2):
+        bka=79
+        tbk=150
+        prize=450
+    elif(an==3):
+        bka=88
+        tbk=200
+        prize=600
+    elif(an==4):
+        bka=90
+        tbk=100
+        prize=500
+elif(s==2):
+    print(bk[s-1])
+    a=['R K RAJPUT','S S BHAVIKATTI','S M A KAZIMI','JP SINGH']
+    for i in range (len(a)):
+        print(i+1,"Solid Mechines by",a[i])
+    an=int(input("Choose the Author:"))
+    if(an==1):
+        bka=12
+        tbk=200
+        prize=430
+    elif(an==2):
+        bka=95
+        tbk=150
+        prize=600
+    elif(an==3):
+        bka=10
+        tbk=50
+        prize=280
+    elif(an==4):
+        bka=30
+        tbk=100
+        prize=360
+elif(s==3):
+    print(bk[s-1])
+    a=['RAJPUT RK','STREELER VL','BANSAL RK','C S P OJHA']
+    for i in range (len(a)):
+         print(i+1,"Fluid Mechines by",a[i])
+    an=int(input("Choose the Author:"))
+    if(an==1):
+        bka=9
+        tbk=100
+        prize=520
+    elif(an==2):
+        bka=10
+        tbk=50
+        prize=250
+    elif(an==3):
+        bka=2
+        tbk=200
+        prize=500
+    elif(an==4):
+        bka=25
+        tbk=60
+        prize=435
+elif(s==4):
+   print(bk[s-1])
+   a=['WILLIAM D CALLISTER','R K RAJPUT','FERDINAD P BEER','V RAGHAVAN']
+   for i in range (len(a)):
+       print(i+1,"Engineering Materials by",a[i])
+   an=int(input("Choose the Author:"))
+   if(an==1):
+       bka=15
+       tbk=50
+       prize=250
+   elif(an==2):
+       bka=5
+       tbk=100
+       prize=346
+   elif(an==3):
+       bka=55
+       tbk=100
+       prize=362
+   elif(an==4):
+        bka=42
+        tbk=50
+        prize=432
+elif(s==5):
+    print(bk[s-1])
+    a=['Kaushish J P','Ghosh A','Rao P N','S K Sharma']
+    for i in range (len(a)):
+        print(i+1,"Primary Manufacturing",a[i])
+    an=int(input("Choose the Author:"))
+    if(an==1):
+        bka=55
+        tbk=70
+        prize=426
+    elif(an==2):
+        bka=15
+        tbk=30
+        prize=256
+    elif(an==3):
+        bka=10
+        tbk=100
+        prize=346
+    elif(an==4):
+        bka=55
+        tbk=100
+        prize=263
+else:
+    print("No Book Available")
+class book:
+    def __init__(self,ak,aa,bka,tbk,prize):
+        self.ak=ak
+        self.aa=aa
+        self.bka=bka
+        self.tbk=tbk
+        self.prize=prize
+    def display(self):
+        print("\n\n\n*******************************************************************************")
+        print("\t\tThe Deails of ",self.ak,"Book by",self.aa)
+        print("\t\t\tBooks Available\t:",self.bka)
+        print("\t\t\tTotal Books\t:",self.tbk)
+        print("\t\t\tSold Books\t:",self.tbk-self.bka)
+        print("\t\t\tPrice\t\t:Rs",self.prize)
+        print("\n*******************************************************************************")
+ob=book(bk[s-1],a[an-1],bka,tbk,prize)
+ob.display()
+
